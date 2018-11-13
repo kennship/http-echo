@@ -3,6 +3,7 @@ var app = express()
 
 app.all('*', (req, res) => {
   res.json({
+    service: process.env.SERVICE_NAME || undefined, // Keys with value `undefined` are omitted during JSON serialization
     path: req.path,
     headers: req.headers,
     method: req.method,
